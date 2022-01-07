@@ -28,8 +28,7 @@ Note: In CSS Grid, the parent element is referred to as the container and its ch
       width: 100%;
       background: LightGray;
       /* Only change code below this line */
-  
-      
+    display:grid;      
       /* Only change code above this line */
     }
   </style>
@@ -283,7 +282,7 @@ This will make the item start at the first vertical line of the grid on the left
     .item5 {
       background: PaleGreen;
       /* Only change code below this line */
-  
+      
   
       /* Only change code above this line */
     }
@@ -524,7 +523,7 @@ grid-template-areas:
       grid-template-areas:
       /* Only change code below this line */
         "header header header"
-        "advert content content"
+        " content content"
         "footer footer footer";
       /* Only change code above this line */
     }
@@ -604,7 +603,7 @@ item1 { grid-area: 1/1/2/4; } -->
     .item5 {
       background: PaleGreen;
       /* Only change code below this line */
-  
+      grid-area:3/1/4 ;
   
       /* Only change code above this line */
     }
@@ -629,7 +628,7 @@ item1 { grid-area: 1/1/2/4; } -->
     <div class="item5">5</div>
   </div>
 
-  <!-- 18 CSS Grid: Reduce Repetition Using the repeat Function
+  <!-- 17 CSS Grid: Reduce Repetition Using the repeat Function
  -->
 <!-- Here's an example that would create the 100 row grid, each row at 50px tall.
 
@@ -667,7 +666,7 @@ grid-template-rows: repeat(100, 50px); -->
     <div class="item5">5</div>
   </div>
 
-  <!-- 19 CSS Grid: Limit Item Size Using the minmax Function
+  <!-- 18 CSS Grid: Limit Item Size Using the minmax Function
 -->
 <!-- There's another built-in function to use with grid-template-columns and grid-template-rows called minmax. It's used to limit the size of items when the grid container changes size. To do this you need to specify the acceptable size range for your item. Here is an example:
 
@@ -706,14 +705,14 @@ grid-template-columns: 100px minmax(50px, 200px); -->
   </div>
 
 
-  <!-- 20 CSS Grid: Create Flexible Layouts Using auto-fill
+  <!-- 19 CSS Grid: Create Flexible Layouts Using auto-fill
 -->
 <!-- The repeat function comes with an option called auto-fill. This allows you to automatically insert as many rows or columns of your desired size as possible depending on the size of the container. You can create flexible layouts when combining auto-fill with minmax, like this:
 
 repeat(auto-fill, minmax(60px, 1fr)); -->
 <!-- In the first grid, use auto-fill with repeat to fill the grid with columns that have a minimum width of 60px and maximum of 1fr. Then resize the preview to see auto-fill in action.
  -->
- <!-- In the first grid, use auto-fill with repeat to fill the grid with columns that have a minimum width of 60px and maximum of 1fr. Then resize the preview to see auto-fill in action. -->
+
  <style>
     .item1{background:LightSkyBlue;}
     .item2{background:LightSalmon;}
@@ -729,7 +728,7 @@ repeat(auto-fill, minmax(60px, 1fr)); -->
       display: grid;
       /* Only change code below this line */
   
-      grid-template-columns: repeat(3, minmax(60px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
   
       /* Only change code above this line */
       grid-template-rows: 1fr 1fr 1fr;
@@ -762,7 +761,7 @@ repeat(auto-fill, minmax(60px, 1fr)); -->
     <div class="item5">5</div>
   </div>
 
-  <!-- 21 CSS Grid: Create Flexible Layouts Using auto-fit
+  <!-- 20 CSS Grid: Create Flexible Layouts Using auto-fit
 -->
 <!-- auto-fit works almost identically to auto-fill. The only difference is that when the container's size exceeds the size of all the items combined, auto-fill keeps inserting empty rows or columns and pushes your items to the side, while auto-fit collapses those empty rows or columns and stretches your items to fit the size of the container. -->
 
@@ -817,7 +816,7 @@ repeat(auto-fill, minmax(60px, 1fr)); -->
     <div class="item5">5</div>
   </div>
 
-  <!-- 22 CSS Grid: Use Media Queries to Create Responsive Layouts
+  <!-- 21 CSS Grid: Use Media Queries to Create Responsive Layouts
 -->
 <!-- When the viewport width is 400px or more, make the header area occupy the top row completely and the footer area occupy the bottom row completely.
  -->
@@ -873,13 +872,21 @@ repeat(auto-fill, minmax(60px, 1fr)); -->
       .container{
         grid-template-areas:
         /* Only change code below this line */
-          "advert header"
+          "header header"
           "advert content"
-          "advert footer";
+          "footer footer";
         /* Only change code above this line */
       }
     }
   </style>
+
+
+<!--22 Create Grids within Grids
+Turning an element into a grid only affects the behavior of its direct descendants. So by turning a direct descendant into a grid, you have a grid within a grid.
+
+For example, by setting the display and grid-template-columns properties of the element with the item3 class, you create a grid within your grid.
+
+Turn the element with the item3 class into a grid with two columns with a width of auto and 1fr using display and grid-template-columns. -->
   
   <div class="container">
     <div class="item1">header</div>
@@ -889,6 +896,62 @@ repeat(auto-fill, minmax(60px, 1fr)); -->
   </div>
 
 
-
+  <style>
+    .container {
+      font-size: 1.5em;
+      min-height: 300px;
+      width: 100%;
+      background: LightGray;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr auto;
+      grid-gap: 10px;
+      grid-template-areas:
+        "advert header"
+        "advert content"
+        "advert footer";
+    }
+    .item1 {
+      background: LightSkyBlue;
+      grid-area: header;
+    }
+  
+    .item2 {
+      background: LightSalmon;
+      grid-area: advert;
+    }
+  
+    .item3 {
+      background: PaleTurquoise;
+      grid-area: content;
+      /* Only change code below this line */
+  
+      /* Only change code above this line */
+    }
+  
+    .item4 {
+      background: lightpink;
+      grid-area: footer;
+    }
+  
+    .itemOne {
+      background: PaleGreen;
+    }
+  
+    .itemTwo {
+      background: BlanchedAlmond;
+    }
+  
+  </style>
+  
+  <div class="container">
+    <div class="item1">header</div>
+    <div class="item2">advert</div>
+    <div class="item3">
+      <div class="itemOne">paragraph1</div>
+      <div class="itemTwo">paragraph2</div>
+    </div>
+    <div class="item4">footer</div>
+  </div>
 </body>
 </html>
