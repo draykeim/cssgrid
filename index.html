@@ -66,7 +66,8 @@ This will give your grid two columns that are each 50px wide.
       background: LightGray;
       display: grid;
       /* Only change code below this line */
-  
+      display: grid;
+grid-template-columns: 100px 100px 100px;
       
       /* Only change code above this line */
     }
@@ -100,7 +101,7 @@ This will give your grid two columns that are each 50px wide.
       display: grid;
       grid-template-columns: 100px 100px 100px;
       /* Only change code below this line */
-  
+  grid-template-rows: 50px 50px;
       
       /* Only change code above this line */
     }
@@ -141,7 +142,7 @@ grid-template-columns: auto 50px 10% 2fr 1fr; -->
       display: grid;
       /* Only change code below this line */
   
-      grid-template-columns: auto 50px 10% 2fr 1fr;
+      grid-template-columns: 1fr 100px 2fr;
   
       /* Only change code above this line */
       grid-template-rows: 50px 50px;
@@ -181,7 +182,7 @@ grid-column-gap: 10px; -->
       grid-template-rows: 1fr 1fr 1fr;
       /* Only change code below this line */
   
-     
+     grid-column-gap: 20px;
       /* Only change code above this line */
     }
   </style>
@@ -214,7 +215,7 @@ grid-column-gap: 10px; -->
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
       /* Only change code below this line */
-  
+  grid-row-gap: 5px;
       
       /* Only change code above this line */
     }
@@ -249,7 +250,7 @@ grid-column-gap: 10px; -->
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
       /* Only change code below this line */
-  
+      grid-gap: 10px 20px;
       
       /* Only change code above this line */
     }
@@ -282,7 +283,7 @@ This will make the item start at the first vertical line of the grid on the left
     .item5 {
       background: PaleGreen;
       /* Only change code below this line */
-      
+      grid-column: 2/4;
   
       /* Only change code above this line */
     }
@@ -321,7 +322,7 @@ This will make the item start at the first vertical line of the grid on the left
       background: PaleGreen;
       grid-column: 2 / 4;
       /* Only change code below this line */
-  
+  grid-row: 2/4;
       /* Only change code above this line */
     }
   
@@ -357,7 +358,7 @@ This will make the item start at the first vertical line of the grid on the left
       background: LightSalmon;
       /* Only change code below this line */
   
-      
+      justify-self: center;
       /* Only change code above this line */
     }
   
@@ -396,7 +397,7 @@ This will make the item start at the first vertical line of the grid on the left
     .item3 {
       background: PaleTurquoise;
       /* Only change code below this line */
-  
+     align-self: end;
       
       /* Only change code above this line */
     }
@@ -446,7 +447,7 @@ This will make the item start at the first vertical line of the grid on the left
       grid-template-rows: 1fr 1fr 1fr;
       grid-gap: 10px;
       /* Only change code below this line */
-  
+      justify-items: center;
       
       /* Only change code above this line */
     }
@@ -482,7 +483,7 @@ This will make the item start at the first vertical line of the grid on the left
       grid-template-rows: 1fr 1fr 1fr;
       grid-gap: 10px;
       /* Only change code below this line */
-  
+    align-items: end;
       
       /* Only change code above this line */
     }
@@ -522,7 +523,7 @@ grid-template-areas:
       grid-gap: 10px;
       grid-template-areas:
       /* Only change code below this line */
-        "header header header"
+      "header header header"
         " content content"
         "footer footer footer";
       /* Only change code above this line */
@@ -556,7 +557,7 @@ grid-template-areas:
     .item5 {
       background: PaleGreen;
       /* Only change code below this line */
-  
+  grid-area: footer;
       
       /* Only change code above this line */
     }
@@ -603,7 +604,7 @@ item1 { grid-area: 1/1/2/4; } -->
     .item5 {
       background: PaleGreen;
       /* Only change code below this line */
-      grid-area:3/1/4 ;
+      grid-area:3/1/4/4 ;
   
       /* Only change code above this line */
     }
@@ -650,7 +651,7 @@ grid-template-rows: repeat(100, 50px); -->
       display: grid;
       /* Only change code below this line */
   
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3,1fr);
   
       /* Only change code above this line */
       grid-template-rows: 1fr 1fr 1fr;
@@ -688,7 +689,7 @@ grid-template-columns: 100px minmax(50px, 200px); -->
       display: grid;
       /* Only change code below this line */
   
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(90px, 1fr));
   
       /* Only change code above this line */
       grid-template-rows: 1fr 1fr 1fr;
@@ -793,7 +794,7 @@ repeat(auto-fill, minmax(60px, 1fr)); -->
       display: grid;
       /* Only change code below this line */
   
-      grid-template-columns: repeat(3, minmax(60px, 1fr));
+      grid-template-columns: repeat(autofit, minmax(60px, 1fr));
   
       /* Only change code above this line */
       grid-template-rows: 1fr 1fr 1fr;
@@ -862,9 +863,9 @@ repeat(auto-fill, minmax(60px, 1fr)); -->
         grid-template-columns: auto 1fr;
         grid-template-rows: auto 1fr auto;
         grid-template-areas:
-          "advert header"
+          "header header"
           "advert content"
-          "advert footer";
+          "footer footer";
       }
     }
   
@@ -925,7 +926,8 @@ Turn the element with the item3 class into a grid with two columns with a width 
       background: PaleTurquoise;
       grid-area: content;
       /* Only change code below this line */
-  
+      display: grid;
+      grid-template-columns: auto 1fr;
       /* Only change code above this line */
     }
   
